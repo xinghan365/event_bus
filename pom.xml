@@ -6,9 +6,9 @@
     <artifactId>event_bus</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>event_bus_google</module>
         <module>event_bus_rxjava</module>
         <module>event_bus_esper</module>
+        <module>event_bus_guava</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -23,16 +23,55 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <com.espertech.version>6.1.0</com.espertech.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.9.6</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>6.9.6</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.reactivex</groupId>
+                <artifactId>rxjava</artifactId>
+                <version>1.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.espertech</groupId>
+                <artifactId>esper</artifactId>
+                <version>${com.espertech.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.espertech</groupId>
+                <artifactId>esperio-csv</artifactId>
+                <version>${com.espertech.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.espertech</groupId>
+                <artifactId>esper-avro</artifactId>
+                <version>${com.espertech.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.espertech</groupId>
+                <artifactId>esperio-stax</artifactId>
+                <version>${com.espertech.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.espertech</groupId>
+                <artifactId>esperio-socket</artifactId>
+                <version>${com.espertech.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.espertech</groupId>
+                <artifactId>esperio-db</artifactId>
+                <version>${com.espertech.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <repositories>
         <repository>
